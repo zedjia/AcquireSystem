@@ -25,7 +25,7 @@ namespace IDRecognize
         }
         public static Image<Gray, byte> BinImg(Image<Bgr, byte> img, int blockSize, int val)
         {
-
+ 
             return img.Convert<Gray, byte>().SmoothGaussian(5).ThresholdAdaptive(new Gray(255),
                 AdaptiveThresholdType.GaussianC,
                 ThresholdType.Binary,

@@ -692,7 +692,7 @@ namespace IDRecognize
             int _parm = Convert.ToInt32(textBox3.Text.Trim());
             imageSource = imageSource.SmoothMedian(_parm);  //参数为7去噪，然后腐蚀
             //imageSource = imageSource.SmoothGaussian(_parm);  //高斯模糊
-
+              
             setImages(imageSource);
         }
 
