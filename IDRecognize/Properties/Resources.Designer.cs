@@ -59,15 +59,5 @@ namespace IDRecognize.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Bitmap IMG_2770___副本 {
-            get {
-                object obj = ResourceManager.GetObject("IMG_2770 - 副本", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
