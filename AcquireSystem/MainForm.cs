@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AcquireSystem.Browser;
+using AcquireSystem.Sqlite;
 using CefSharp;
 using CefSharp.WinForms;
 
@@ -46,18 +47,17 @@ namespace AcquireSystem
             this.panel3.Controls.Add(browser);
             browser.Dock = DockStyle.Fill;
 
-
         }
         //public  void CallJsFunction(string jsFunction)
         //{
         //    browser.ExecuteScriptAsync(jsFunction);
         //    //browser.ExecuteScriptAsync(" console.log('" + jsFunction + "') ");
-            
+
         //}
 
         #endregion
 
-     
+
 
 
 
@@ -129,5 +129,13 @@ namespace AcquireSystem
             catch { }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SqliteSerivces sqlite = new SqliteSerivces();
+            if (sqlite.SqlTest())
+            {
+                MessageBox.Show("数据库连接成功!");
+            }
+        }
     }
 }

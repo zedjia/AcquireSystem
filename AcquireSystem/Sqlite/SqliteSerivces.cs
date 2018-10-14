@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SQLite;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Dapper;
+using Dapper.Contrib;
+using Dapper.Contrib.Extensions;
+
+namespace AcquireSystem.Sqlite
+{
+    public class SqliteSerivces
+    {
+        private const string SQLITEDBPATH = "./Sqlite/db.db";
+        private SQLiteConnection connection;
+        public SqliteSerivces()
+        {
+            connection= new SQLiteConnection(string.Format(
+                "Data Source={0};Version=3;", SQLITEDBPATH));
+        }
+
+        public bool SqlTest()
+        {
+            try
+            {
+                var data=connection.ExecuteScalar("select count(1) from Test");
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
+        }
+
+    }
+}
