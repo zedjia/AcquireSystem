@@ -31,7 +31,7 @@ namespace AcquireSystem
             setting.CefCommandLineArgs.Add("renderer-process-limit", "5");
             Cef.Initialize(setting);
 
-            browser = new ChromiumWebBrowser("http://www.baidu.com");
+            browser = new ChromiumWebBrowser(Application.StartupPath+ @"\Browser\test.html");
 
             //browser.FrameLoadStart += browser_FrameLoadStart;
             //browser.FrameLoadEnd += browser_FrameLoadEnd;
@@ -68,25 +68,66 @@ namespace AcquireSystem
             browser.ResetBindings();
         }
 
-
+        /// <summary>
+        /// 调用开发调试工具
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             browser.ShowDevTools();
         }
-
+        
+        /// <summary>
+        /// 调用js方法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
-            string html = "<!DOCTYPE html><html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta charset=\"utf-8\" /><title></title>" +
-                          "<script>"+
-                "  CefSharp.BindObjectAsync(\"WCShell\", \"WCShell\"); " +
-                          "function test() { WCShell.helloWorld(document.getElementById('txt').value);}</script></head>"+
-                "<body><H1> Hello World </H1 ><input type='text' value='hi zed' name='txt' id='txt' /> " +
-          
-                          "<input type = \"button\" onclick = \"test();\" value = \"测试\" /></body></html> ";
-
-
-            browser.LoadHtml(html);
-            browser.ResetBindings();
+            browser.ExecuteScriptAsync("alert(document.getElementById('txt').value);");
         }
+
+        //private void button4_Click(object sender, EventArgs e)
+        //{
+        //    string html = "<!DOCTYPE html><html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"><head><meta charset=\"utf-8\" /><title></title>" +
+        //                  "<script>"+
+        //        "  CefSharp.BindObjectAsync(\"WCShell\", \"WCShell\"); " +
+        //                  "function test() { WCShell.helloWorld(document.getElementById('txt').value);}</script></head>"+
+        //        "<body><H1> Hello World </H1 ><input type='text' value='hi zed' name='txt' id='txt' /> " +
+
+        //                  "<input type = \"button\" onclick = \"test();\" value = \"测试\" /></body></html> ";
+
+
+        //    browser.LoadHtml(html);
+        //    browser.ResetBindings();
+        //}
+
+
+        /// <summary>
+        /// 窗体关闭释放资源
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                browser.CloseDevTools();
+                browser.GetBrowser().CloseBrowser(true);
+            }
+            catch { }
+
+            try
+            {
+                if (browser != null)
+                {
+                    browser.Dispose();
+                    Cef.Shutdown();
+                }
+            }
+            catch { }
+        }
+
     }
 }

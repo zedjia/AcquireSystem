@@ -4,14 +4,15 @@
     <meta charset="utf-8" />
     <title></title>
     <script>
-
+        CefSharp.BindObjectAsync("WCShell", "WCShell");
         function test() {
-            WCShell.helloWorld();
+            WCShell.helloWorld(document.getElementById('txt').value);   //此处调用winform后台的方法   JsEventFunction==>helloWorld
         }
     </script>
 </head>
 <body>
 <H1>Hello World</H1>
-    <input type="button" onclick="test();" value="测试"/>   
+    <input type='text' value='hi zed' name='txt' id='txt' /> 
+    <input type="button" onclick="test();" value="测试调用后台方法"/>   
 </body>
 </html>
