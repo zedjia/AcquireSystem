@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AcquireSystem.Forms;
 using CefSharp;
 using CefSharp.WinForms;
 
@@ -12,11 +13,11 @@ namespace AcquireSystem.Browser
 {
     public class JsEventFunction
     {
-        private MainForm MainForm;
+        //private BaseForm MainForm;
         private ChromiumWebBrowser _browser;
-        public JsEventFunction(MainForm form, ChromiumWebBrowser browser)
+        public JsEventFunction( ChromiumWebBrowser browser)
         {
-            MainForm = form;
+            //MainForm = form;
             _browser = browser;
         }
 
@@ -27,7 +28,6 @@ namespace AcquireSystem.Browser
             Process.GetCurrentProcess().Kill();
             System.Environment.Exit(0);
         }
-        
 
         ///// <summary>
         ///// 是否支持jQuery
@@ -37,7 +37,6 @@ namespace AcquireSystem.Browser
         //{
         //    MainForm.OnCheckjQueryCallBack(isSupportjQuery);
         //}
-
         
         public void HelloWorld(string msg)
         {
