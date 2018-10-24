@@ -29,33 +29,31 @@ namespace AcquireSystem.Forms
 
         void InitBrowser()
         {
-            var setting = new CefSettings();
-            setting.Locale = "zh-CN";
-            setting.CefCommandLineArgs.Add("renderer-process-limit", "5");
-            Cef.Initialize(setting);
+            try
+            {
 
-            browser = new ChromiumWebBrowser(Application.StartupPath + @"\Browser\test.html");
+                browser = new ChromiumWebBrowser(Application.StartupPath + @"\Browser\test.html");
 
-            //browser.FrameLoadStart += browser_FrameLoadStart;
-            //browser.FrameLoadEnd += browser_FrameLoadEnd;
-            //browser.LifeSpanHandler = new CustomLifeSpanHandler();
-            //browser.RequestHandler = new CustomRequestHandler();
+                //browser.FrameLoadStart += browser_FrameLoadStart;
+                //browser.FrameLoadEnd += browser_FrameLoadEnd;
+                //browser.LifeSpanHandler = new CustomLifeSpanHandler();
+                //browser.RequestHandler = new CustomRequestHandler();
 
-            //CefSharpSettings.LegacyJavascriptBindingEnabled = true;
-            //browser.RegisterJsObject("WCShell", new JsEventFunction(this, browser));
-            browser.JavascriptObjectRepository.Register("WCShell", new JsEventFunction(browser));
-            //browser.MenuHandler = new MenuHandler();
+                //CefSharpSettings.LegacyJavascriptBindingEnabled = true;
+                //browser.RegisterJsObject("WCShell", new JsEventFunction(this, browser));
+                browser.JavascriptObjectRepository.Register("WCShell", new JsEventFunction(browser));
+                //browser.MenuHandler = new MenuHandler();
 
-            this.panel3.Controls.Add(browser);
-            browser.Dock = DockStyle.Fill;
+                this.panel3.Controls.Add(browser);
+                browser.Dock = DockStyle.Fill;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"浏览器初始化出现错误!{e.Message}");
+            }
+            
 
         }
-        //public  void CallJsFunction(string jsFunction)
-        //{
-        //    browser.ExecuteScriptAsync(jsFunction);
-        //    //browser.ExecuteScriptAsync(" console.log('" + jsFunction + "') ");
-
-        //}
 
         #endregion
 
@@ -125,7 +123,7 @@ namespace AcquireSystem.Forms
                 if (browser != null)
                 {
                     browser.Dispose();
-                    Cef.Shutdown();
+                    //Cef.Shutdown();
                 }
             }
             catch { }
@@ -140,5 +138,6 @@ namespace AcquireSystem.Forms
             }
         }
 
+        
     }
 }

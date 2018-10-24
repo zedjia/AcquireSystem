@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Common.Forms;
+using Z.Lib.Helper;
 
 namespace AcquireSystem.Forms
 {
@@ -16,6 +17,11 @@ namespace AcquireSystem.Forms
         public AcquireMaster_Form()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            FormHelper.ShowForm<GisMeasure_Form>(this);
         }
     }
 }

@@ -56,5 +56,10 @@ namespace AcquireSystem
             FormHelper.ShowForm<GisMeasure_Form>(this);
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormHelper.ShowForm<Config_Form>(this);
+        }
     }
 }
