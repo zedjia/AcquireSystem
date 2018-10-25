@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AcquireSystem.Forms;
 using CefSharp;
 using CefSharp.WinForms;
 
@@ -33,7 +34,7 @@ namespace AcquireSystem
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new GisMeasure_Form());
         }
 
         private static void Application_ApplicationExit(object sender, EventArgs e)

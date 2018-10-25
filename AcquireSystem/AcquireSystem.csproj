@@ -105,12 +105,6 @@
     <Compile Include="Forms\GisMeasure_Form.Designer.cs">
       <DependentUpon>GisMeasure_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\PopulationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,9 +117,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\GisMeasure_Form.resx">
       <DependentUpon>GisMeasure_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -150,9 +141,7 @@
     <Content Include="RefDll\Z.Lib.dll" />
     <None Include="Resources\timg.jpg" />
     <None Include="Resources\timg1.jpg" />
-    <Content Include="Sqlite\db.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="Sqlite\db.sqlite" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -13,7 +13,7 @@ namespace AcquireSystem.Sqlite
 {
     public class SqliteSerivces: SqliteDBCore
     {
-        private const string SQLITEDBPATH = "./Sqlite/db.db";
+        private const string SQLITEDBPATH = "./Sqlite/db.sqlite";
         private SQLiteConnection connection;
 
         public override string ConnectionString

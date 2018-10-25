@@ -11,12 +11,12 @@ namespace Common.Forms
     {
         public NormalForm()
         {
-            //this.Width = 1280;
-            //this.Height = 800;
-            this.WindowState = FormWindowState.Maximized;
-            this.ControlBox = false;
-            this.TopMost = true;
-            this.FormBorderStyle = FormBorderStyle.None;
+            this.Width = 1280;
+            this.Height = 800;
+            //this.WindowState = FormWindowState.Maximized;
+            //this.ControlBox = false;
+            //this.TopMost = true;
+            //this.FormBorderStyle = FormBorderStyle.None;
         }
     }
 }
